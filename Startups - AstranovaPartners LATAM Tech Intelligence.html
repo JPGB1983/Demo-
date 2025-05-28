@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://qhsltwdy.gensparkspace.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startups - AstranovaPartners LATAM Tech Intelligence</title>
+    <link href="./Startups - AstranovaPartners LATAM Tech Intelligence_files/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Startups - AstranovaPartners LATAM Tech Intelligence_files/all.min.css">
+    <style>
+        .dd-score-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.875rem;
+        }
+        .dd-score-9 { background: linear-gradient(45deg, #10b981, #059669); }
+        .dd-score-8 { background: linear-gradient(45deg, #3b82f6, #2563eb); }
+        .startup-row:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            transition: all 0.2s ease;
+        }
+        .modal {
+            backdrop-filter: blur(4px);
+        }
+    </style>
+<style>
+    .genspark-notice-dialog {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .genspark-notice-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 10px 30px 30px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+
+    .genspark-notice-title {
+      color: #000;
+      font-family: Arial;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+    }
+
+    .genspark-notice-list {
+      margin: 24px 0;
+      
+      color: #606366;
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      padding-left: 12px;
+    }
+
+    .genspark-notice-list li {
+      margin-bottom: 12px;
+      list-style-type: disc;
+    }
+
+    .genspark-notice-list li a {
+      color: #606366;
+      text-decoration: underline;
+    }
+
+    .genspark-notice-checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+
+      color: #232425;
+
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .genspark-notice-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+      
+    .genspark-notice-ok {
+      color: #232425;
+
+      text-align: center;
+      font-family: Arial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      padding: 6px 14px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style></head>
+<body class="bg-gray-50">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-blue-900">AstranovaPartners</h1>
+                    <span class="ml-2 text-sm text-gray-600">LATAM Tech Intelligence</span>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="https://qhsltwdy.gensparkspace.com/dashboard.html" class="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
+                    <a href="https://qhsltwdy.gensparkspace.com/startups.html" class="bg-blue-900 text-white px-3 py-2 rounded-md text-sm font-medium">Startups</a>
+                    <a href="https://qhsltwdy.gensparkspace.com/analytics.html" class="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Analytics</a>
+                    <a href="https://qhsltwdy.gensparkspace.com/reports.html" class="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium">Reports</a>
+                </nav>
+                <button onclick="logout()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">LATAM Tech Startups</h1>
+            <p class="mt-2 text-gray-600">Complete analysis of high-potential startups across Latin America</p>
+        </div>
+
+        <!-- Filters Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4">Filters &amp; Search</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                    <input type="text" id="searchInput" placeholder="Search startups..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">DD Score Range</label>
+                    <select id="scoreFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Scores</option>
+                        <option value="9+">9.0+ (Excellent)</option>
+                        <option value="8+">8.0+ (Very Good)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Stage</label>
+                    <select id="stageFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Stages</option>
+                        <option value="Series A">Series A</option>
+                        <option value="Seed">Seed</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Sector</label>
+                    <select id="sectorFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">All Sectors</option>
+                        <option value="Payments">Payments</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="Education">Education</option>
+                        <option value="Mobility">Mobility</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="clearFilters()" class="mt-4 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-md text-sm">
+                Clear All Filters
+            </button>
+        </div>
+
+        <!-- Startups Table -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">High-Potential Startups</h2>
+                <p class="text-sm text-gray-600">5 startups tracked • $209.9M total funding analyzed</p>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Startup</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DD Score</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Funding</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sector</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Geography</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Key Investors</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="startupsTableBody" class="bg-white divide-y divide-gray-200"><tr class="startup-row cursor-pointer">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">Yuno</div>
+                                <div class="text-sm text-gray-500">Payment orchestration platform</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge dd-score-9">9.3</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$35M</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Series A</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Payments</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Colombia</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">a16z, Tiger Global, DST</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal(&#39;Yuno&#39;)" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                </tr><tr class="startup-row cursor-pointer">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">Tapi</div>
+                                <div class="text-sm text-gray-500">B2B fintech billing platform</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge dd-score-9">9.1</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$31M</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Series A</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Payments</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">LATAM</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">a16z, Kaszek</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal(&#39;Tapi&#39;)" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                </tr><tr class="startup-row cursor-pointer">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">OCN</div>
+                                <div class="text-sm text-gray-500">Financial platform for gig workers</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge dd-score-8">8.7</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$86M</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Series A</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mobility</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Mexico</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Caravela Capital</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal(&#39;OCN&#39;)" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                </tr><tr class="startup-row cursor-pointer">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">POK</div>
+                                <div class="text-sm text-gray-500">Blockchain-based credentialing platform</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge dd-score-8">8.5</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$12M</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Series A</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Blockchain</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Argentina</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Various</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal(&#39;POK&#39;)" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                </tr><tr class="startup-row cursor-pointer">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">Principia</div>
+                                <div class="text-sm text-gray-500">Vertical fintech for education sector</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge dd-score-8">8.2</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">$45.9M</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Series A</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Education</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Brazil</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Valor Capital, FJ Labs</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal(&#39;Principia&#39;)" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                </tr></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Startup Detail Modal -->
+    <div id="startupModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden modal z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <h3 id="modalTitle" class="text-lg font-semibold text-gray-900"></h3>
+                        <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="modalContent" class="px-6 py-4">
+                    <!-- Modal content will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Startup data with exact information from due_diligence_top5 table
+        const startups = [
+            {
+                name: "Yuno",
+                ddScore: 9.3,
+                funding: "$35M",
+                fundingNumeric: 35,
+                stage: "Series A",
+                sector: "Payments",
+                geography: "Colombia",
+                investors: "a16z, Tiger Global, DST",
+                founded: "2022",
+                employees: "~150+",
+                description: "Payment orchestration platform",
+                founders: "Juan Pablo Ortega (CEO), Julian Nunez (both ex-Rappi unicorn)",
+                details: "Global expansion with Qatar HQ. Single API to access multiple payment processors globally.",
+                fundingDetails: "Seed $10M + Series A $25M"
+            },
+            {
+                name: "Tapi",
+                ddScore: 9.1,
+                funding: "$31M",
+                fundingNumeric: 31,
+                stage: "Series A",
+                sector: "Payments",
+                geography: "LATAM",
+                investors: "a16z, Kaszek",
+                founded: "2022",
+                employees: "87",
+                description: "B2B fintech billing platform",
+                founders: "Strong founding team",
+                details: "Single API integration for recurring payments across LATAM. Abstracts regional payment complexity.",
+                fundingDetails: "Seed $9M + Series A $22M"
+            },
+            {
+                name: "OCN",
+                ddScore: 8.7,
+                funding: "$86M",
+                fundingNumeric: 86,
+                stage: "Series A",
+                sector: "Mobility",
+                geography: "Mexico",
+                investors: "Caravela Capital",
+                founded: "2021",
+                employees: "N/A",
+                description: "Financial platform for gig workers",
+                founders: "Mairon Sandoval (CEO)",
+                details: "Car rental financing for rideshare drivers. Cross-border LATAM-US operations.",
+                fundingDetails: "Series A $86M"
+            },
+            {
+                name: "POK",
+                ddScore: 8.5,
+                funding: "$12M",
+                fundingNumeric: 12,
+                stage: "Series A",
+                sector: "Blockchain",
+                geography: "Argentina",
+                investors: "Various",
+                founded: "2023-11-01",
+                employees: "N/A",
+                description: "Blockchain-based credentialing platform",
+                founders: "Guido Grinbaum (24+ years digital disruption)",
+                details: "NFTs for educational institutions. Series A achieved in just 14 months.",
+                fundingDetails: "Series A $12M (Latest: 2025-01-15)"
+            },
+            {
+                name: "Principia",
+                ddScore: 8.2,
+                funding: "$45.9M",
+                fundingNumeric: 45.9,
+                stage: "Series A",
+                sector: "Education",
+                geography: "Brazil",
+                investors: "Valor Capital, FJ Labs",
+                founded: "2020+",
+                employees: "N/A",
+                description: "Vertical fintech for education sector",
+                founders: "Brazilian founding team",
+                details: "Financial management for private universities in Brazil. Acquired Provi for growth strategy.",
+                fundingDetails: "Series A $45.9M"
+            }
+        ];
+
+        let filteredStartups = [...startups];
+
+        function renderStartups() {
+            const tbody = document.getElementById('startupsTableBody');
+            tbody.innerHTML = '';
+
+            filteredStartups.forEach(startup => {
+                const scoreClass = startup.ddScore >= 9 ? 'dd-score-9' : 'dd-score-8';
+                const row = document.createElement('tr');
+                row.className = 'startup-row cursor-pointer';
+                row.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">${startup.name}</div>
+                                <div class="text-sm text-gray-500">${startup.description}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="dd-score-badge ${scoreClass}">${startup.ddScore}</span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${startup.funding}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${startup.stage}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${startup.sector}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${startup.geography}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${startup.investors}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button onclick="openModal('${startup.name}')" class="text-blue-600 hover:text-blue-900">
+                            <i class="fas fa-eye mr-1"></i>View Details
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function filterStartups() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const scoreFilter = document.getElementById('scoreFilter').value;
+            const stageFilter = document.getElementById('stageFilter').value;
+            const sectorFilter = document.getElementById('sectorFilter').value;
+
+            filteredStartups = startups.filter(startup => {
+                const matchesSearch = startup.name.toLowerCase().includes(searchTerm) || 
+                                    startup.description.toLowerCase().includes(searchTerm) ||
+                                    startup.investors.toLowerCase().includes(searchTerm);
+                
+                const matchesScore = !scoreFilter || 
+                                   (scoreFilter === '9+' && startup.ddScore >= 9) ||
+                                   (scoreFilter === '8+' && startup.ddScore >= 8);
+                
+                const matchesStage = !stageFilter || startup.stage === stageFilter;
+                const matchesSector = !sectorFilter || startup.sector === sectorFilter;
+
+                return matchesSearch && matchesScore && matchesStage && matchesSector;
+            });
+
+            renderStartups();
+        }
+
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('scoreFilter').value = '';
+            document.getElementById('stageFilter').value = '';
+            document.getElementById('sectorFilter').value = '';
+            filteredStartups = [...startups];
+            renderStartups();
+        }
+
+        function openModal(startupName) {
+            const startup = startups.find(s => s.name === startupName);
+            const modal = document.getElementById('startupModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = startup.name;
+            modalContent.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-4">
+                        <span class="dd-score-badge ${startup.ddScore >= 9 ? 'dd-score-9' : 'dd-score-8'}">${startup.ddScore}</span>
+                        <span class="text-2xl font-bold text-green-600">${startup.funding}</span>
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-sm">${startup.stage}</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Basic Information</h4>
+                            <div class="mt-2 space-y-1">
+                                <p><strong>Founded:</strong> ${startup.founded}</p>
+                                <p><strong>Geography:</strong> ${startup.geography}</p>
+                                <p><strong>Sector:</strong> ${startup.sector}</p>
+                                <p><strong>Employees:</strong> ${startup.employees}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Funding Details</h4>
+                            <div class="mt-2 space-y-1">
+                                <p><strong>Total Raised:</strong> ${startup.funding}</p>
+                                <p><strong>Breakdown:</strong> ${startup.fundingDetails}</p>
+                                <p><strong>Key Investors:</strong> ${startup.investors}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Description</h4>
+                        <p class="mt-2 text-gray-700">${startup.details}</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-gray-900">Founders</h4>
+                        <p class="mt-2 text-gray-700">${startup.founders}</p>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('startupModal').classList.add('hidden');
+        }
+
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterStartups);
+        document.getElementById('scoreFilter').addEventListener('change', filterStartups);
+        document.getElementById('stageFilter').addEventListener('change', filterStartups);
+        document.getElementById('sectorFilter').addEventListener('change', filterStartups);
+
+        // Close modal when clicking outside
+        document.getElementById('startupModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize
+        renderStartups();
+    </script>
+
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDp8j8IaowcT2%2F6OKsuSpVQRXMy%2BU2kZtxM0Si11VqSWe8NM6onZfGTQd3VY%2BUzoM%2FD2sMvRRGJqsZKt9DiRTqDZK7s1qgmOmzUMcwewbQPnVUboN4Se9xxbOzQC8znaZlrgudlVcqpv1Aahd5eJGnml74xz2bdSRg%2BonDTTTvokDtIt9JO0NpmkCIZMqpR6EFyhsUQ%2FDvac6kMqdHJMA6mxBIAypLT1wHMQ0G1%2BRXK5moznhI1cG1vo3x09jIEzhMlO58N2At7KrJMTEJoN8794KyPPNNmcj%2FMHC%2BGZ2Y27n4qkSjw%2B%2BkYqNUbs964gKd%2BgMYDuuAUFQLGePYFhPfrhoF3e%2FqSzZqF2ZzyDdsRhj%2F3IJx%2F3H%2F9030Z3alA02pespKcPyFVciIc71KwJmVj7DFMmrPCA6sSc4ocdzkyTUo5p%2FOAneM4fKR2yX%2B23BToLYMEk7W1auIxhalPwrpeY8wnzbeJ7DzgXuOkP8tlbwu53eLSgGItpb5zNvJ82rww%3D%3D";
+        window.__genspark_locale = "es-ES";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDp8j8IaowcT2/6OKsuSpVQRXMy+U2kZtxM0Si11VqSWe8NM6onZfGTQd3VY+UzoM/D2sMvRRGJqsZKt9DiRTqDZK7s1qgmOmzUMcwewbQPnVUboN4Se9xxbOzQC8znaZlrgudlVcqpv1Aahd5eJGnml74xz2bdSRg+onDTTTvokDtIt9JO0NpmkCIZMqpR6EFyhsUQ/Dvac6kMqdHJMA6mxBIAypLT1wHMQ0G1+RXK5moznhI1cG1vo3x09jIEzhMlO58N2At7KrJMTEJoN8794KyPPNNmcj/MHC+GZ2Y27n4qkSjw++kYqNUbs964gKd+gMYDuuAUFQLGePYFhPfrhoF3e/qSzZqF2ZzyDdsRhj/3IJx/3H/9030Z3alA02pespKcPyFVciIc71KwJmVj7DFMmrPCA6sSc4ocdzkyTUo5p/OAneM4fKR2yX+23BToLYMEk7W1auIxhalPwrpeY8wnzbeJ7DzgXuOkP8tlbwu53eLSgGItpb5zNvJ82rww==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="./Startups - AstranovaPartners LATAM Tech Intelligence_files/notice_dialog.js.descarga"></script>
+    <div class="genspark-notice-dialog">
+      <div class="genspark-notice-content">
+        <h2 class="genspark-notice-title">Este sitio fue creado por un usuario, tenga en cuenta:</h2>
+        <ul class="genspark-notice-list">
+          <li>El contenido puede contener inexactitudes, verifique la información antes de usarla.</li>
+          <li>Si nota contenido inapropiado en este sitio, contáctenos en <a href="mailto:support@genspark.ai">support@genspark.ai</a>.</li>
+        </ul>
+        <div class="genspark-notice-checkbox">
+          <input type="checkbox" id="genspark-dont-show">
+          <label for="genspark-dont-show">No mostrar este mensaje de nuevo.</label>
+        </div>
+        <div class="genspark-notice-actions">
+          <button class="genspark-notice-ok">Aceptar</button>
+        </div>
+      </div>
+    </div></body></html>
