@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://vhqggdnm.gensparkspace.com/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LATAM Tech Intelligence - Complete Ecosystem</title>
+    <link href="./Login_files/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Login_files/all.min.css">
+    <script src="./Login_files/chart.js.descarga"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .chart-container { position: relative; height: 400px; margin: 20px 0; }
+        .company-card:hover { transform: translateY(-2px); transition: all 0.3s; }
+        .dd-score { font-weight: bold; padding: 4px 8px; border-radius: 12px; color: white; }
+        .dd-score-high { background: linear-gradient(135deg, #10b981, #059669); }
+        .dd-score-medium { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .dd-score-low { background: linear-gradient(135deg, #6b7280, #4b5563); }
+        .sector-badge { padding: 2px 8px; border-radius: 8px; font-size: 0.75rem; font-weight: 500; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; right: 0; background-color: white; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 8px; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .sidebar { min-height: calc(100vh - 80px); }
+    </style>
+<style>
+    .genspark-notice-dialog {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 10001;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .genspark-notice-content {
+      background-color: white;
+      border-radius: 8px;
+      max-width: 600px;
+      width: 90%;
+      box-sizing: border-box;
+      padding: 10px 30px 30px 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+
+    .genspark-notice-title {
+      color: #000;
+      font-family: Arial;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+    }
+
+    .genspark-notice-list {
+      margin: 24px 0;
+      
+      color: #606366;
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      padding-left: 12px;
+    }
+
+    .genspark-notice-list li {
+      margin-bottom: 12px;
+      list-style-type: disc;
+    }
+
+    .genspark-notice-list li a {
+      color: #606366;
+      text-decoration: underline;
+    }
+
+    .genspark-notice-checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      gap: 10px;
+
+      color: #232425;
+
+      font-family: Arial;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .genspark-notice-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+      
+    .genspark-notice-ok {
+      color: #232425;
+
+      text-align: center;
+      font-family: Arial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%; 
+
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      padding: 6px 14px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      align-self: stretch;
+      border-radius: 8px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style></head>
+<body class="bg-gray-50">
+
+<!-- Login Page -->
+<div id="loginPage" class="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-md fade-in">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">LATAM Tech Intelligence</h1>
+            <p class="text-gray-600">Complete Tech Ecosystem Coverage</p>
+        </div>
+        
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" value="demo@kaszek.com">
+        </div>
+        
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" value="••••••••">
+        </div>
+        
+        <button onclick="login()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+            Sign In
+        </button>
+        
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-600">Demo User: Kaszek Ventures Partner</p>
+        </div>
+    </div>
+</div>
+
+<!-- Main Dashboard -->
+<div id="dashboard" class="hidden">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-800">LATAM Tech Intelligence</h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="showSection(&#39;dashboardSection&#39;)" class="nav-btn text-blue-600 hover:text-blue-800 px-3 py-2 rounded-md font-medium">Dashboard</button>
+                    <button onclick="showSection(&#39;startupsSection&#39;)" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md font-medium">Companies</button>
+                    <button onclick="showSection(&#39;analyticsSection&#39;)" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md font-medium">Analytics</button>
+                    <button onclick="showSection(&#39;reportsSection&#39;)" class="nav-btn text-gray-500 hover:text-gray-700 px-3 py-2 rounded-md font-medium">Reports</button>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <i class="fas fa-bell text-gray-400 text-xl"></i>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </div>
+                    
+                    <div class="dropdown">
+                        <div class="flex items-center space-x-2 cursor-pointer">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                <span class="text-white text-sm font-bold">DU</span>
+                            </div>
+                            <span class="text-gray-700 font-medium">Demo User - Kaszek Ventures</span>
+                            <i class="fas fa-chevron-down text-gray-400"></i>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="https://vhqggdnm.gensparkspace.com/#" onclick="logout()" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-blue-100">
+                        <i class="fas fa-building text-blue-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Companies Tracked</p>
+                        <p class="text-2xl font-bold text-gray-800">60</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-green-100">
+                        <i class="fas fa-dollar-sign text-green-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Funding Analyzed</p>
+                        <p class="text-2xl font-bold text-gray-800">$8.5B+</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-purple-100">
+                        <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Avg DD Score</p>
+                        <p class="text-2xl font-bold text-gray-800">7.2</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <div class="flex items-center">
+                    <div class="p-3 rounded-full bg-orange-100">
+                        <i class="fas fa-globe-americas text-orange-600 text-xl"></i>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-gray-500 text-sm">Sectors Covered</p>
+                        <p class="text-2xl font-bold text-gray-800">12+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Companies -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Top Performing Companies</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="company-card p-4 border border-gray-200 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-bold text-gray-800">Yuno</h4>
+                        <span class="dd-score dd-score-high">9.3</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Payment orchestration • $35M Series A</p>
+                    <p class="text-sm text-gray-500">a16z, Tiger Global, DST</p>
+                    <div class="mt-3">
+                        <span class="sector-badge bg-blue-100 text-blue-800">FinTech</span>
+                    </div>
+                </div>
+                
+                <div class="company-card p-4 border border-gray-200 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-bold text-gray-800">Tapi</h4>
+                        <span class="dd-score dd-score-high">9.1</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">B2B billing platform • $31M Series A</p>
+                    <p class="text-sm text-gray-500">a16z, Kaszek Ventures</p>
+                    <div class="mt-3">
+                        <span class="sector-badge bg-blue-100 text-blue-800">FinTech</span>
+                    </div>
+                </div>
+                
+                <div class="company-card p-4 border border-gray-200 rounded-lg">
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-bold text-gray-800">OCN</h4>
+                        <span class="dd-score dd-score-high">8.7</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Gig worker financing • $86M Series A</p>
+                    <p class="text-sm text-gray-500">Caravela Capital</p>
+                    <div class="mt-3">
+                        <span class="sector-badge bg-blue-100 text-blue-800">FinTech</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Sector Distribution</h3>
+                <div class="chart-container">
+                    <canvas id="sectorChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Top DD Scores</h3>
+                <div class="chart-container">
+                    <canvas id="topScoresChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Companies Section -->
+    <div id="startupsSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Filters Sidebar -->
+            <div class="lg:w-1/4">
+                <div class="bg-white p-6 rounded-xl shadow-lg sidebar">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Filters</h3>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Search</label>
+                        <input type="text" id="searchInput" placeholder="Search companies..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Sector</label>
+                        <select id="sectorFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">All Sectors</option>
+                            <option value="FinTech">FinTech</option>
+                            <option value="HealthTech">HealthTech</option>
+                            <option value="EdTech">EdTech</option>
+                            <option value="PropTech">PropTech</option>
+                            <option value="AgriTech">AgriTech</option>
+                            <option value="LegalTech">LegalTech</option>
+                            <option value="CleanTech">CleanTech</option>
+                            <option value="AI Tech">AI Tech</option>
+                            <option value="MobilityTech">MobilityTech</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">DD Score Range</label>
+                        <div class="flex space-x-2">
+                            <input type="number" id="minScore" placeholder="Min" min="5" max="10" step="0.1" class="w-1/2 px-3 py-2 border border-gray-300 rounded-md">
+                            <input type="number" id="maxScore" placeholder="Max" min="5" max="10" step="0.1" class="w-1/2 px-3 py-2 border border-gray-300 rounded-md">
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Stage</label>
+                        <select id="stageFilter" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">All Stages</option>
+                            <option value="Seed">Seed</option>
+                            <option value="Series A">Series A</option>
+                            <option value="Series B">Series B</option>
+                            <option value="Series C+">Series C+</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="applyFilters()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                        Apply Filters
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Companies Table -->
+            <div class="lg:w-3/4">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="px-6 py-4 border-b border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-800">LATAM Tech Companies</h3>
+                        <p class="text-sm text-gray-600">60 companies across 12+ sectors</p>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Company</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">DD Score</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Funding</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sector</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stage</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Investors</th>
+                                </tr>
+                            </thead>
+                            <tbody id="companiesTableBody" class="bg-white divide-y divide-gray-200">
+                                <!-- Companies will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Section -->
+    <div id="analyticsSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8">Analytics &amp; Methodology</h2>
+        
+        <!-- DD Score Methodology -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">DD Score Methodology</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-4">Scoring Components</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <div class="w-4 h-4 bg-blue-500 rounded mr-3"></div>
+                            <span class="text-gray-700"><strong>Financial Metrics (30%)</strong> - Funding, growth, stage</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-4 h-4 bg-green-500 rounded mr-3"></div>
+                            <span class="text-gray-700"><strong>Team &amp; Founders (25%)</strong> - Track record, experience</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-4 h-4 bg-purple-500 rounded mr-3"></div>
+                            <span class="text-gray-700"><strong>Market Traction (20%)</strong> - Adoption, expansion</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-4 h-4 bg-orange-500 rounded mr-3"></div>
+                            <span class="text-gray-700"><strong>Investor Quality (15%)</strong> - Tier-1 VCs, reputation</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-4 h-4 bg-red-500 rounded mr-3"></div>
+                            <span class="text-gray-700"><strong>Competitive Position (10%)</strong> - Moat, differentiation</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chart-container">
+                    <canvas id="methodologyChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Company Comparison -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mb-8">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">Top Companies Comparison</h3>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="chart-container">
+                    <canvas id="comparisonRadarChart"></canvas>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-700 mb-4">Why These Scores?</h4>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-green-50 rounded-lg border-l-4 border-green-500">
+                            <h5 class="font-semibold text-green-800">Yuno - DD Score 9.3</h5>
+                            <p class="text-sm text-green-700">Ex-Rappi founders (unicorn background) + tier-1 investors (a16z, Tiger Global) + international expansion (Qatar)</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                            <h5 class="font-semibold text-blue-800">Tapi - DD Score 9.1</h5>
+                            <p class="text-sm text-blue-700">Strong execution (87 employees, $31M raised) + premium investors (a16z, Kaszek) + technical moat in regional billing</p>
+                        </div>
+                        <div class="p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+                            <h5 class="font-semibold text-purple-800">Rappi - DD Score 8.3</h5>
+                            <p class="text-sm text-purple-700">Proven super app model + massive scale + $500M+ funding from DST Global</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sector Analysis -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Average DD Score by Sector</h3>
+                <div class="chart-container">
+                    <canvas id="sectorScoresChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-lg font-bold text-gray-800 mb-4">Funding Distribution by Sector</h3>
+                <div class="chart-container">
+                    <canvas id="fundingBySectorChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ecosystem Overview -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <h3 class="text-xl font-bold text-gray-800 mb-6">LATAM Tech Ecosystem Overview</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">45%</div>
+                    <div class="text-sm text-gray-600">Brazil Companies</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-600 mb-2">25%</div>
+                    <div class="text-sm text-gray-600">Mexico Companies</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">40%</div>
+                    <div class="text-sm text-gray-600">Series A Stage</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">17%</div>
+                    <div class="text-sm text-gray-600">HealthTech Sector</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Section -->
+    <div id="reportsSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-8">Reports &amp; Intelligence</h2>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="lg:col-span-2">
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">Weekly Deal Flow Report</h3>
+                    <p class="text-gray-600 mb-6">Complete analysis of LATAM tech ecosystem activity</p>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">Top Performers This Week</h4>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-600">
+                                <li>• Yuno (9.3) - Payment orchestration leader</li>
+                                <li>• Tapi (9.1) - B2B billing platform scaling</li>
+                                <li>• Rappi (8.3) - Super app expansion</li>
+                                <li>• iFood (8.1) - Food delivery dominance</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg">
+                            <h4 class="font-semibold text-gray-800">Sector Highlights</h4>
+                            <ul class="mt-2 space-y-2 text-sm text-gray-600">
+                                <li>• FinTech: Strong momentum with $209M+ analyzed</li>
+                                <li>• HealthTech: Docplanner leading at DD 7.9</li>
+                                <li>• PropTech: Loft showing strong Series C traction</li>
+                                <li>• AI Tech: Neoway leading data intelligence space</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-6 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                        <i class="fas fa-download mr-2"></i>Export Report
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">Report Options</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <h4 class="font-semibold text-gray-800">Top 10 Opportunities</h4>
+                            <p class="text-sm text-gray-600">Companies with DD Score 8.0+</p>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <h4 class="font-semibold text-gray-800">Sector Deep Dive</h4>
+                            <p class="text-sm text-gray-600">Choose any of 12+ sectors</p>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <h4 class="font-semibold text-gray-800">Geographic Analysis</h4>
+                            <p class="text-sm text-gray-600">Brazil, Mexico, Argentina focus</p>
+                        </div>
+                        
+                        <div class="p-4 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50">
+                            <h4 class="font-semibold text-gray-800">Custom Report</h4>
+                            <p class="text-sm text-gray-600">Build your own criteria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Sample company data - 60 companies across all sectors
+const companies = [
+    // FinTech (5)
+    {name: "Yuno", ddScore: 9.3, funding: "$35M", sector: "FinTech", stage: "Series A", investors: "a16z, Tiger Global, DST", description: "Payment orchestration", country: "Colombia"},
+    {name: "Tapi", ddScore: 9.1, funding: "$31M", sector: "FinTech", stage: "Series A", investors: "a16z, Kaszek", description: "B2B billing platform", country: "Argentina"},
+    {name: "OCN", ddScore: 8.7, funding: "$86M", sector: "FinTech", stage: "Series A", investors: "Caravela Capital", description: "Gig worker financing", country: "Mexico"},
+    {name: "POK", ddScore: 8.5, funding: "$12M", sector: "FinTech", stage: "Series A", investors: "Angel Investors", description: "Blockchain credentials", country: "Argentina"},
+    {name: "Principia", ddScore: 8.2, funding: "$45.9M", sector: "FinTech", stage: "Series A", investors: "Valor Capital, FJ Labs", description: "Education fintech", country: "Brazil"},
+    
+    // HealthTech (10)
+    {name: "Docplanner", ddScore: 7.9, funding: "$80M", sector: "HealthTech", stage: "Series D", investors: "Goldman Sachs", description: "Healthcare platform", country: "Brazil"},
+    {name: "Dr. Consulta", ddScore: 7.8, funding: "$15M", sector: "HealthTech", stage: "Series B", investors: "Kaszek", description: "Primary care", country: "Brazil"},
+    {name: "Laura", ddScore: 7.7, funding: "$20M", sector: "HealthTech", stage: "Series A", investors: "Kaszek Ventures", description: "Telemedicine", country: "Colombia"},
+    {name: "Sami", ddScore: 7.5, funding: "$32M", sector: "HealthTech", stage: "Series A", investors: "ThornTree Capital", description: "Health insurance", country: "Brazil"},
+    {name: "Teladoc LATAM", ddScore: 7.4, funding: "$25M", sector: "HealthTech", stage: "Expansion", investors: "Teladoc Global", description: "Telehealth", country: "Brazil"},
+    {name: "Vittude", ddScore: 7.2, funding: "$8M", sector: "HealthTech", stage: "Series A", investors: "Monashees", description: "Mental health", country: "Brazil"},
+    {name: "Salud.com.ar", ddScore: 6.9, funding: "$5M", sector: "HealthTech", stage: "Series A", investors: "NXTP Labs", description: "Health marketplace", country: "Argentina"},
+    {name: "Conexa", ddScore: 6.8, funding: "$1.2M", sector: "HealthTech", stage: "Seed", investors: "Astella", description: "Telemedicine", country: "Brazil"},
+    {name: "Mediktor", ddScore: 6.7, funding: "$2.3M", sector: "HealthTech", stage: "Seed", investors: "Healthtech Capital", description: "AI medical assistant", country: "Spain"},
+    {name: "Prontmed", ddScore: 6.5, funding: "$800K", sector: "HealthTech", stage: "Seed", investors: "500 Startups", description: "On-demand doctors", country: "Mexico"},
+    
+    // EdTech (8)
+    {name: "Descomplica", ddScore: 7.6, funding: "$83M", sector: "EdTech", stage: "Series C", investors: "Softbank", description: "Online education", country: "Brazil"},
+    {name: "Platzi", ddScore: 7.3, funding: "$62M", sector: "EdTech", stage: "Series B", investors: "Foundation Capital", description: "Tech education", country: "Colombia"},
+    {name: "Teachable", ddScore: 7.1, funding: "$4M", sector: "EdTech", stage: "Expansion", investors: "Hotmart", description: "Course platform", country: "Brazil"},
+    {name: "Coderhouse", ddScore: 6.9, funding: "$13.5M", sector: "EdTech", stage: "Series A", investors: "Kaszek", description: "Coding bootcamps", country: "Argentina"},
+    {name: "BYJU'S LATAM", ddScore: 6.7, funding: "$15M", sector: "EdTech", stage: "Expansion", investors: "BYJU'S Global", description: "K-12 education", country: "Brazil"},
+    {name: "Smartick", ddScore: 6.4, funding: "$2M", sector: "EdTech", stage: "Series A", investors: "JME Ventures", description: "Math learning", country: "Spain"},
+    {name: "Babbel LATAM", ddScore: 6.2, funding: "$10M", sector: "EdTech", stage: "Expansion", investors: "Babbel Global", description: "Language learning", country: "Mexico"},
+    {name: "ClassApp", ddScore: 6.0, funding: "$1.5M", sector: "EdTech", stage: "Seed", investors: "Endeavor", description: "School management", country: "Brazil"},
+    
+    // PropTech (7)
+    {name: "Loft", ddScore: 7.4, funding: "$100M", sector: "PropTech", stage: "Series C", investors: "a16z", description: "Real estate marketplace", country: "Brazil"},
+    {name: "Houm", ddScore: 7.2, funding: "$23M", sector: "PropTech", stage: "Series A", investors: "Kaszek", description: "Real estate platform", country: "Chile"},
+    {name: "La Haus", ddScore: 6.9, funding: "$35M", sector: "PropTech", stage: "Series B", investors: "Kaszek", description: "Real estate", country: "Colombia"},
+    {name: "Fractal Real Estate", ddScore: 6.8, funding: "$4.2M", sector: "PropTech", stage: "Seed", investors: "ALLVP", description: "Real estate investment", country: "Mexico"},
+    {name: "Properati", ddScore: 6.5, funding: "$3M", sector: "PropTech", stage: "Series A", investors: "NXTP Labs", description: "Real estate listings", country: "Argentina"},
+    {name: "ZAP Imóveis", ddScore: 6.3, funding: "$25M", sector: "PropTech", stage: "Acquisition", investors: "OLX Group", description: "Real estate portal", country: "Brazil"},
+    {name: "Wiik", ddScore: 6.1, funding: "$2M", sector: "PropTech", stage: "Seed", investors: "Monashees", description: "Property management", country: "Brazil"},
+    
+    // AgriTech (6)
+    {name: "Solinftec", ddScore: 7.5, funding: "$60M", sector: "AgriTech", stage: "Series B", investors: "Softbank", description: "Precision agriculture", country: "Brazil"},
+    {name: "AgroSmart", ddScore: 7.1, funding: "$4M", sector: "AgriTech", stage: "Series A", investors: "SP Ventures", description: "IoT agriculture", country: "Brazil"},
+    {name: "Traive", ddScore: 6.8, funding: "$3.5M", sector: "AgriTech", stage: "Series A", investors: "Astella", description: "Agricultural credit", country: "Brazil"},
+    {name: "Inteliagro", ddScore: 6.6, funding: "$2M", sector: "AgriTech", stage: "Seed", investors: "e.bricks", description: "Farm management", country: "Brazil"},
+    {name: "AgriQ", ddScore: 6.4, funding: "$1.5M", sector: "AgriTech", stage: "Seed", investors: "ALLVP", description: "Agricultural data", country: "Mexico"},
+    {name: "Kilimo", ddScore: 6.2, funding: "$1M", sector: "AgriTech", stage: "Seed", investors: "NXTP Labs", description: "Water management", country: "Argentina"},
+    
+    // LegalTech (5)
+    {name: "Astrea", ddScore: 7.0, funding: "$2.5M", sector: "LegalTech", stage: "Series A", investors: "Monashees", description: "Legal automation", country: "Brazil"},
+    {name: "LexisNexis LATAM", ddScore: 6.8, funding: "$15M", sector: "LegalTech", stage: "Expansion", investors: "RELX Group", description: "Legal research", country: "Brazil"},
+    {name: "Saj", ddScore: 6.7, funding: "$8M", sector: "LegalTech", stage: "Series A", investors: "Softbank", description: "Court management", country: "Brazil"},
+    {name: "Turivius", ddScore: 6.5, funding: "$1.2M", sector: "LegalTech", stage: "Seed", investors: "Astella", description: "Legal services", country: "Brazil"},
+    {name: "ContratosOnline", ddScore: 6.3, funding: "$800K", sector: "LegalTech", stage: "Seed", investors: "500 Startups", description: "Contract automation", country: "Mexico"},
+    
+    // CleanTech (5)
+    {name: "Atlas Renewable", ddScore: 7.3, funding: "$25M", sector: "CleanTech", stage: "Series B", investors: "IFC", description: "Solar energy", country: "Brazil"},
+    {name: "Neoenergia Tech", ddScore: 6.9, funding: "$12M", sector: "CleanTech", stage: "Venture Arm", investors: "Neoenergia", description: "Energy innovation", country: "Brazil"},
+    {name: "WEG Ventures", ddScore: 6.7, funding: "$20M", sector: "CleanTech", stage: "Fund", investors: "WEG", description: "Industrial automation", country: "Brazil"},
+    {name: "Sunew", ddScore: 6.5, funding: "$3M", sector: "CleanTech", stage: "Series A", investors: "BNDES", description: "Organic solar cells", country: "Brazil"},
+    {name: "Genneia", ddScore: 6.4, funding: "$50M", sector: "CleanTech", stage: "Debt", investors: "IDB Invest", description: "Renewable energy", country: "Argentina"},
+    
+    // AI Tech (8)
+    {name: "Neoway", ddScore: 7.8, funding: "$58M", sector: "AI Tech", stage: "Series B", investors: "Softbank", description: "Data intelligence", country: "Brazil"},
+    {name: "Loggi Tech", ddScore: 7.4, funding: "$150M", sector: "AI Tech", stage: "Series D", investors: "Softbank", description: "AI logistics", country: "Brazil"},
+    {name: "Semantix", ddScore: 7.2, funding: "$4.5M", sector: "AI Tech", stage: "Series A", investors: "ThornTree", description: "Big data", country: "Brazil"},
+    {name: "Aquarela", ddScore: 6.8, funding: "$2M", sector: "AI Tech", stage: "Series A", investors: "DGF Investimentos", description: "AI consulting", country: "Brazil"},
+    {name: "DataSprints", ddScore: 6.6, funding: "$1.5M", sector: "AI Tech", stage: "Seed", investors: "Astella", description: "Data science", country: "Brazil"},
+    {name: "Daitan", ddScore: 6.4, funding: "$5M", sector: "AI Tech", stage: "Acquisition", investors: "Stefanini", description: "Software development", country: "Brazil"},
+    {name: "Lambda3", ddScore: 6.2, funding: "$3M", sector: "AI Tech", stage: "Series A", investors: "e.bricks", description: "Cloud consulting", country: "Brazil"},
+    {name: "Venturus", ddScore: 6.0, funding: "$2M", sector: "AI Tech", stage: "Seed", investors: "Fapesp", description: "AI solutions", country: "Brazil"},
+    
+    // MobilityTech (6)
+    {name: "Rappi", ddScore: 8.3, funding: "$500M+", sector: "MobilityTech", stage: "Series F", investors: "DST Global", description: "Super app", country: "Colombia"},
+    {name: "iFood", ddScore: 8.1, funding: "$2B+", sector: "MobilityTech", stage: "Valuation", investors: "Prosus", description: "Food delivery", country: "Brazil"},
+    {name: "99 (DiDi)", ddScore: 7.6, funding: "$200M+", sector: "MobilityTech", stage: "Acquisition", investors: "DiDi", description: "Ride-hailing", country: "Brazil"},
+    {name: "Loggi", ddScore: 7.4, funding: "$150M", sector: "MobilityTech", stage: "Series D", investors: "Softbank", description: "Last-mile delivery", country: "Brazil"},
+    {name: "Cabify", ddScore: 7.2, funding: "$140M", sector: "MobilityTech", stage: "Series F", investors: "Rakuten", description: "Ride-hailing", country: "Spain"},
+    {name: "Grow Mobility", ddScore: 6.5, funding: "$15M", sector: "MobilityTech", stage: "Series A", investors: "Kaszek", description: "Scooter sharing", country: "Mexico"}
+];
+
+let filteredCompanies = [...companies];
+
+function login() {
+    document.getElementById('loginPage').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    initCharts();
+    populateCompaniesTable();
+}
+
+function logout() {
+    document.getElementById('dashboard').classList.add('hidden');
+    document.getElementById('loginPage').classList.remove('hidden');
+}
+
+function showSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('#dashboard > div').forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Show selected section
+    document.getElementById(sectionId).classList.remove('hidden');
+    
+    // Update navigation
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('text-blue-600');
+        btn.classList.add('text-gray-500');
+    });
+    event.target.classList.remove('text-gray-500');
+    event.target.classList.add('text-blue-600');
+    
+    // Initialize charts if analytics section
+    if (sectionId === 'analyticsSection') {
+        setTimeout(initAnalyticsCharts, 100);
+    }
+}
+
+function initCharts() {
+    // Sector Distribution Chart
+    const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+    new Chart(sectorCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['HealthTech', 'EdTech', 'PropTech', 'AI Tech', 'MobilityTech', 'AgriTech', 'FinTech', 'LegalTech', 'CleanTech'],
+            datasets: [{
+                data: [16.7, 13.3, 11.7, 13.3, 10, 10, 8.3, 8.3, 8.3],
+                backgroundColor: [
+                    '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#3b82f6',
+                    '#06b6d4', '#6366f1', '#f97316', '#84cc16'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right'
+                }
+            }
+        }
+    });
+
+    // Top DD Scores Chart
+    const scoresCtx = document.getElementById('topScoresChart').getContext('2d');
+    new Chart(scoresCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Yuno', 'Tapi', 'OCN', 'POK', 'Rappi'],
+            datasets: [{
+                label: 'DD Score',
+                data: [9.3, 9.1, 8.7, 8.5, 8.3],
+                backgroundColor: '#3b82f6'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
+    });
+}
+
+function initAnalyticsCharts() {
+    // Methodology Chart
+    const methodCtx = document.getElementById('methodologyChart').getContext('2d');
+    new Chart(methodCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Financial (30%)', 'Team (25%)', 'Traction (20%)', 'Investors (15%)', 'Competition (10%)'],
+            datasets: [{
+                data: [30, 25, 20, 15, 10],
+                backgroundColor: ['#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Comparison Radar Chart
+    const radarCtx = document.getElementById('comparisonRadarChart').getContext('2d');
+    new Chart(radarCtx, {
+        type: 'radar',
+        data: {
+            labels: ['Financial', 'Team', 'Traction', 'Investors', 'Competition'],
+            datasets: [
+                {
+                    label: 'Yuno (9.3)',
+                    data: [8.5, 10, 9, 10, 8],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)'
+                },
+                {
+                    label: 'Tapi (9.1)',
+                    data: [8.5, 9, 8.5, 10, 8],
+                    borderColor: '#10b981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)'
+                },
+                {
+                    label: 'Rappi (8.3)',
+                    data: [9, 8.5, 9, 8, 7],
+                    borderColor: '#8b5cf6',
+                    backgroundColor: 'rgba(139, 92, 246, 0.1)'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
+    });
+
+    // Sector Scores Chart
+    const sectorScoresCtx = document.getElementById('sectorScoresChart').getContext('2d');
+    new Chart(sectorScoresCtx, {
+        type: 'bar',
+        data: {
+            labels: ['FinTech', 'MobilityTech', 'HealthTech', 'AI Tech', 'PropTech', 'AgriTech', 'EdTech', 'CleanTech', 'LegalTech'],
+            datasets: [{
+                label: 'Average DD Score',
+                data: [8.76, 7.57, 7.27, 6.9, 6.74, 6.6, 6.58, 6.56, 6.46],
+                backgroundColor: '#3b82f6'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 10
+                }
+            }
+        }
+    });
+
+    // Funding by Sector Chart
+    const fundingCtx = document.getElementById('fundingBySectorChart').getContext('2d');
+    new Chart(fundingCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['MobilityTech', 'HealthTech', 'PropTech', 'FinTech', 'AI Tech', 'EdTech', 'AgriTech', 'CleanTech', 'LegalTech'],
+            datasets: [{
+                data: [42.5, 18.8, 16.9, 10.4, 4.7, 3.1, 2.3, 1.1, 0.2],
+                backgroundColor: [
+                    '#3b82f6', '#10b981', '#8b5cf6', '#f59e0b', '#ef4444',
+                    '#06b6d4', '#6366f1', '#f97316', '#84cc16'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right'
+                }
+            }
+        }
+    });
+}
+
+function populateCompaniesTable() {
+    const tbody = document.getElementById('companiesTableBody');
+    tbody.innerHTML = '';
+    
+    filteredCompanies.forEach(company => {
+        const row = document.createElement('tr');
+        row.className = 'hover:bg-gray-50 cursor-pointer';
+        
+        const ddScoreClass = company.ddScore >= 8 ? 'dd-score-high' : 
+                           company.ddScore >= 7 ? 'dd-score-medium' : 'dd-score-low';
+        
+        const sectorColors = {
+            'FinTech': 'bg-blue-100 text-blue-800',
+            'HealthTech': 'bg-green-100 text-green-800',
+            'EdTech': 'bg-purple-100 text-purple-800',
+            'PropTech': 'bg-yellow-100 text-yellow-800',
+            'AgriTech': 'bg-green-100 text-green-800',
+            'LegalTech': 'bg-gray-100 text-gray-800',
+            'CleanTech': 'bg-green-100 text-green-800',
+            'AI Tech': 'bg-red-100 text-red-800',
+            'MobilityTech': 'bg-blue-100 text-blue-800'
+        };
+        
+        row.innerHTML = `
+            <td class="px-6 py-4 whitespace-nowrap">
+                <div>
+                    <div class="text-sm font-medium text-gray-900">${company.name}</div>
+                    <div class="text-sm text-gray-500">${company.description}</div>
+                </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="dd-score ${ddScoreClass}">${company.ddScore}</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${company.funding}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+                <span class="sector-badge ${sectorColors[company.sector] || 'bg-gray-100 text-gray-800'}">${company.sector}</span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${company.stage}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${company.investors}</td>
+        `;
+        
+        tbody.appendChild(row);
+    });
+}
+
+function applyFilters() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const sectorFilter = document.getElementById('sectorFilter').value;
+    const minScore = parseFloat(document.getElementById('minScore').value) || 0;
+    const maxScore = parseFloat(document.getElementById('maxScore').value) || 10;
+    const stageFilter = document.getElementById('stageFilter').value;
+    
+    filteredCompanies = companies.filter(company => {
+        const matchesSearch = company.name.toLowerCase().includes(searchTerm) ||
+                            company.description.toLowerCase().includes(searchTerm) ||
+                            company.investors.toLowerCase().includes(searchTerm);
+        const matchesSector = !sectorFilter || company.sector === sectorFilter;
+        const matchesScore = company.ddScore >= minScore && company.ddScore <= maxScore;
+        const matchesStage = !stageFilter || company.stage === stageFilter;
+        
+        return matchesSearch && matchesSector && matchesScore && matchesStage;
+    });
+    
+    populateCompaniesTable();
+}
+
+// Event listeners
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+document.getElementById('sectorFilter').addEventListener('change', applyFilters);
+document.getElementById('stageFilter').addEventListener('change', applyFilters);
+document.getElementById('minScore').addEventListener('input', applyFilters);
+document.getElementById('maxScore').addEventListener('input', applyFilters);
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Auto-login for demo
+    // login();
+});
+</script>
+
+
+
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvOmjqxGZ6o3FJ%2FhlpFNoqqK2F8HOznJMLz2RVRJxiQvLToaF%2FQzwe2QE8herKB9pbp6RyC7NP%2Bc3HvHDH3hTyTTmGS1LLbH1PqqLQ06prHeg4IiWy22z7wEaMWhCiz%2BGRl4bSH0pC9QpgD5nQtzfcHof%2Fq5AMFx5c7DrxqilsvKQTpEk2k%2FSuRfqqrLcoSEOy%2Fl74ICgTyZ9tBMl17AgFGI0A7CDotLZM3EwPVVC7UZ4KxHXhlpJbzYhnCkZW%2FLGdiiMDlFykoPhqCssUIHFSvkmzvlJA%2BvEUUaN%2BOjlZIJ2LLdKja8f9aeaeUdJ4rLCc9bcBEeaT8Lg6pwtxok2VMW%2B8fF1pmGJ0%2BVb5lRpd2Gqw83ZFOVNr3%2FL3S9mu98B0HFjGFUtJXRcViaGo42IqTXJkCc8YCMvZuPASvcVcAupLOMGoD6WiuOcTcCIsqZndD6hYI3ARqaeymcHetwvOkE8UNyLemmQ3hAzT3m9ZTMJ8u%2FbGaqJMhbsR1iU%2FMrElRecX4S6EOXEeErXe0vyso%3D";
+        window.__genspark_locale = "es-ES";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvOmjqxGZ6o3FJ/hlpFNoqqK2F8HOznJMLz2RVRJxiQvLToaF/Qzwe2QE8herKB9pbp6RyC7NP+c3HvHDH3hTyTTmGS1LLbH1PqqLQ06prHeg4IiWy22z7wEaMWhCiz+GRl4bSH0pC9QpgD5nQtzfcHof/q5AMFx5c7DrxqilsvKQTpEk2k/SuRfqqrLcoSEOy/l74ICgTyZ9tBMl17AgFGI0A7CDotLZM3EwPVVC7UZ4KxHXhlpJbzYhnCkZW/LGdiiMDlFykoPhqCssUIHFSvkmzvlJA+vEUUaN+OjlZIJ2LLdKja8f9aeaeUdJ4rLCc9bcBEeaT8Lg6pwtxok2VMW+8fF1pmGJ0+Vb5lRpd2Gqw83ZFOVNr3/L3S9mu98B0HFjGFUtJXRcViaGo42IqTXJkCc8YCMvZuPASvcVcAupLOMGoD6WiuOcTcCIsqZndD6hYI3ARqaeymcHetwvOkE8UNyLemmQ3hAzT3m9ZTMJ8u/bGaqJMhbsR1iU/MrElRecX4S6EOXEeErXe0vyso=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="./Login_files/notice_dialog.js.descarga"></script>
+    </body></html>
